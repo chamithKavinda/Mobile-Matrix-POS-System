@@ -168,7 +168,7 @@
                 <!-- Item Add Form -->
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
                     <div class="card shadow-lg mb-3">
-                        <div class="card-header bg-success text-white">
+                        <div class="card-header bg-success text-white fw-bold">
                             Item Form
                         </div>
                         <div class="card-body">
@@ -200,7 +200,70 @@
                     </div>
                 </div>
 
+                <div class="col-sm-12 col-md-12 col-lg col-xl col-xxl">
+                    <div class="card mb-4 shadow-lg">
+                        <div class="card-header bg-success text-white fw-bold">
+                            Search Item
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl">
+                                    <form class="form-control-sm">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control form-control-sm" id="txtItemsearch" placeholder="Search here...">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 col-xxl-2">
+                                                <button id="btnItemSearch" type="button" class="btn btn-outline-success btn-sm mb-2">Search</button>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-5 col-xl-5 col-xxl-3">
+                                                <select class="form-select form-select-sm" aria-label="Default select example" >
+                                                    <option selected>Code</option>
+                                                    <option value="1">Name</option>
+                                                    <option value="2">Price</option>
+                                                    <option value="3">Quantity</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
 
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl d-flex justify-content-center flex-column">
+                                    <!-- Button trigger modal -->
+                                    <button id="btnGetAllItem" type="button" class="btn btn-outline-sucess w-25 align-self-end" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                        Get All Items
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <table class="table table-borderd">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th scope="col" class="bg-success text-white">Code</th>
+                                                                <th scope="col" class="bg-success text-white">Name</th>
+                                                                <th scope="col" class="bg-success text-white">Price</th>
+                                                                <th scope="col" class="bg-success text-white">Quantity</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="modalItemTable"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                </div>
             </div>
         </div>
     </section>
