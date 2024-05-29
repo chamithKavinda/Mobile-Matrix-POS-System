@@ -82,7 +82,7 @@
                 </div>
 
                 <!-- customer search form -->
-                <div class="col-sm-12 col-md-12 col-lg col-xl col=xxl">
+                <div class="col-sm-12 col-md-12 col-lg  col=xxl">
                     <div class="card mb-4 shadow-lg">
                         <div class="card-header text-white fw-bold">
                             Search Customer
@@ -200,6 +200,7 @@
                     </div>
                 </div>
 
+                <!-- Item search form -->
                 <div class="col-sm-12 col-md-12 col-lg col-xl col-xxl">
                     <div class="card mb-4 shadow-lg">
                         <div class="card-header bg-success text-white fw-bold">
@@ -330,7 +331,97 @@
                         </div>
                     </div>
 
-                    
+                    <div class="col-5">
+                        <div class="card h-100">
+                            <div class="card-header text-white bg-success fw-bold">
+                                Select Item
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <label for="selectItemFormItem" class="form-label">Item:</label>
+                                        <select id="selectItemFormItem" class="form-select form-select-sm">
+                                            <option selected>P001</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="itemId" class="form-label">Item Code:</label>
+                                        <input type="text" disabled class="form-control form-control-sm" placeholder="Item Code" id="itemId">
+                                    </div>
+                                    <div class="col-5">
+                                        <label for="itemName" class="form-label">Item Name:</label>
+                                        <input type="text" disabled class="form-control form-control-sm" placeholder="Item Name" aria-label="Item Name" id="itemName">
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="price" class="form-label">Price:</label>
+                                        <input type="text" disabled class="form-control form-control-sm" placeholder="Price" aria-label="Price" id="price">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="quantity" class="form-label">QtyOnHand:</label>
+                                        <input type="text" disabled class="form-control form-control-sm" placeholder="Qty" aria-label="Qty" id="quantity">
+                                     </div>
+                                    <div class="col-12">
+                                        <label for="orderQty" class="form-label">Order Quantity:</label>
+                                        <input type="text" class="form-control form-control-sm" placeholder="Quantity" aria-label="Quantity" id="orderQty">
+                                        <p><small class="text-danger" id="orderQtyError"></small></p>
+                                    </div>
+                                    <div class="col-12 d-flex flex-column">
+                                        <button id="btnPlaceOrder" type="button" class="btn btn-outline-danger btn-sm align-self-end">Place Order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="h1 text-primary" >Total: <span id="total" class="h3"></span></label>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label class="h1 text-danger">SubTotal: <span id="subTotal" class="h3"></span></label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="cash" class="form-label">Cash:</label>
+                                        <input type="text" class="form-control" placeholder="Cash" aria-label="Cash" id="cash">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="discount" class="form-label">Discount:</label>
+                                        <input type="number" class="form-control" placeholder="Discount" aria-label="Discount" id="discount">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="balance" class="form-label">Balance:</label>
+                                        <input type="text" disabled class="form-control" placeholder="Balance" aria-label="Balance" id="balance">
+                                    </div>
+                                    <div class="col d-flex justify-content-center mt-5">
+                                        <button id="btnPurchase" type="button" class="btn btn-outline-ss btn-sm align-self-center">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div style="height: 185px; overflow-y: auto;">
+                            <table class="table table-bordered table-hover shadow-lg">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="bg-success text-white">Item Code</th>
+                                    <th scope="col" class="bg-success text-white">Item Name</th>
+                                    <th scope="col" class="bg-success text-white">Price</th>
+                                    <th scope="col" class="bg-success text-white">Quantity</th>
+                                    <th scope="col" class="bg-success text-white">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblPlaceOrder">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
