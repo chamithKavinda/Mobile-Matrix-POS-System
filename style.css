@@ -1,3 +1,22 @@
+/* ------------------- NavBar ------------------- */
+
+.navbar-brand{
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: RightSlide 1s ease forwards;
+}
+
+@keyframes RightSlide{
+    0%{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+} 
 
 .navbar{
     background-color:rgb(164, 110, 252);
@@ -14,11 +33,28 @@
 .nav-link{
     color: white;
     margin-left: 35px;
+    transition: .5s ease;
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: TopSlide 1s ease forwards;
+    animation-delay: calc(.2s * var(--vlr));
 }
 
 .nav-link:hover{
     color: rgb(46, 42, 73);
 }
+
+@keyframes TopSlide{
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+} 
 
 
 
