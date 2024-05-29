@@ -56,6 +56,41 @@
     }
 } 
 
+/* ------------------- Home ------------------- */
+
+/* ------------------- Customer ------------------- */
+
+/* ---- Customer Detail Form ---- */
+
+.card-header{
+    background-color:rgb(164, 110, 252);
+}
+
+.form-label{
+    color: rgb(46, 42, 73);
+    font-weight: bold;
+}
+
+.btn-outline-ss {
+    color: rgb(164, 110, 252);
+    border-color: rgb(164, 110, 252);
+}
+
+.btn-outline-ss:hover {
+    background-color: rgb(164, 110, 252);
+    color: #fff;
+}
+
+.btn-group{
+    margin-left: 20%;
+}
+
+.btn{
+    font-weight: bold;
+}
+
+
+
 
 
 
