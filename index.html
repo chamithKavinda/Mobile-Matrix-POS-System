@@ -161,7 +161,49 @@
     </section>
 
     <!--------------------------------------- Items Section --------------------------------------->
+    <section id="itemContent">
+        <div class="container-fluid mt-5 d-flex flex-column">
+            <div class="row justify-content-center">
 
+                <!-- Item Add Form -->
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3">
+                    <div class="card shadow-lg mb-3">
+                        <div class="card-header bg-success text-white">
+                            Item Form
+                        </div>
+                        <div class="card-body">
+                            <form class="form-control-sm">
+                                <div class="mb-3">
+                                    <label for="txtItemCode" class="form-label">Item Code:</label>
+                                    <input type="text" class="form-control form-control-sm" id="txtItemCode">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtItemName" class="form-label">Item Name:</label>
+                                    <input type="text" class="form-control form-control-sm" id="txtItemName">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtItemPrice" class="form-label">Price:</label>
+                                    <input type="text" class="form-control form-control-sm" id="txtItemPrice">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtItemQuantity" class="form-label">Quantity:</label>
+                                    <input type="text" class="form-control form-control-sm" id="txtItemQuantity">
+                                </div>
+                                <div class="btn-group">
+                                    <button id="btnSaveItem" type="button" class="btn btn-outline-ss btn-sm">Submit</button>
+                                    <button id="btnUpdateItem" type="button" class="btn btn-outline-primary btn-sm">Update</button>
+                                    <button id="btnRemoveItem" type="button" class="btn btn-outline-danger btn-sm">Remove</button>
+                                    <button id="btnClearItem" type="button" class="btn btn-outline-secondary btn-sm">Clear</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
 
 
     <script src="/assest/Jquery/code.jquery.com_jquery-3.7.1.min.js"></script>
