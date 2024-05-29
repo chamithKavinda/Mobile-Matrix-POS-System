@@ -107,7 +107,21 @@
 
 /* ------------------- Item ------------------- */
 
-/* ---- Customer Detail Form ---- */
+/* ---- Item Detail Form ---- */
+
+
+/* ---- Item Search Form ---- */
+
+/* ---- Item Table ---- */
+.ItemTable{
+    height: 350px;
+    overflow-y: auto;
+}
+
+.table{
+    height: 200px;
+    overflow-y: auto;
+}
 
 
 
