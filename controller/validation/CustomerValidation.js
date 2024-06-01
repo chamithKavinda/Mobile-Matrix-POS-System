@@ -1,10 +1,15 @@
-// ------regex for text fields-----
+// ------ regex for text fields -----
 const CUS_ID_REGEX = /^C\d{3}$/;
 const CUS_NAME_REGEX = /^[A-Za-z ]{5,}$/;
 const CUS_ADDRESS_REGEX = /^[0-9A-Za-z\s\.,#-]+$/;
 const CUS_SALARY_REGEX = /^[0-9]{2,}([.][0-9]{2})?$/;
 
-
+// ------- validations to the text fields ----------
+let cus_vArray = new Array();
+cus_vArray.push({field: $("#txtCusId"), regex: CUS_ID_REGEX});
+cus_vArray.push({field: $("#txtCusName"), regex: CUS_NAME_REGEX});
+cus_vArray.push({field: $("#txtCusAddress"), regex: CUS_ADDRESS_REGEX});
+cus_vArray.push({field: $("#txtCusSalary"), regex: CUS_SALARY_REGEX});
 
 
 function checkValidationsCustomer(object){
