@@ -13,8 +13,21 @@ function checkValidationsCustomer(object){
 }
 
 
-
-
+function setBorderCustomer(bool, object) {
+    if (!bool){
+        if(object.field.val().length >=1){
+            object.field.css("border", "2px solid red");
+        }else{
+            object.field.css("border", "1px solid #ced4da");
+        }
+    }else{
+        if(object.field.val().length >=1){
+            object.field.css("border", "2px solid green");
+        }else{
+            object.field.css("border", "1px solid #ced4da");
+        }
+    }
+}
 
 
 function checkAllCustomer(){
