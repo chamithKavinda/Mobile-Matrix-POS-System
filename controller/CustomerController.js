@@ -87,6 +87,41 @@ function removeCustomer(id){
     return false;
 }
 
+// ------------ Search customer function ------------
+function searchCustomer(customerId) {
+    return customersDB.find(function (customer){
+        return customer.id == customerId;
+    });
+}
 
+// ------------ Update btn event ------------
+$("#btnUpdateCustomer").click(function(){
+    let id = $("#txtCusId").val();
+    updateCustomer(id);
+    clearCustomerInputFields();
+});
+
+// ------------ Update btn Function ------------
+function updateCustomer(id){
+    if(searchCustomer(id) == undefined){
+        alert("Can't find Customer.Please check the Customer ID!!!");
+    }else{
+        let confirmation = confirm("Do you Really want to update this Customer?");
+        if(confirmation){
+            let customer = searchCustomer(id);
+
+            let name = $("txtCusName").val();
+            let address = $("txtCusAddress").val();
+            let salary = $("txtCusSalary").val();
+
+            customer.name = name;
+            customer.address = address;
+            customer.salary = salary;
+
+            getAllCustomer();
+            alert("Customer Updated Successfully!!!");
+        }
+    }
+}
 
 
