@@ -42,7 +42,7 @@ function getAllCustomer(){
     }
 }
 
-// --------------Bind row to fields function---------------------------
+// ------------ Bind row to fields function ------------
 function bindTableRowEventsCustomer() {
     $("#tblCustomer>tr").click(function (){
         let id = $(this).children().eq(0).text();
@@ -55,7 +55,38 @@ function bindTableRowEventsCustomer() {
         $("#txtCusAddress").val(address);
         $("#txtCusSalary").val(salary);
 
-        $("#btnDeleteCustomer").prop("disabled", false);
+        $("#btnRemoveCustomer").prop("disabled", false);
     });
 }
+
+// ------------ Remove btn event ------------
+$("#btnRemoveCustomer").click(function(){
+    let id = $("txtCusId").val();
+
+    let confirmation = confirm("Are you want to delete" + id + "?");
+    if(confirmation){
+        let response = removeCustomer(id);
+        if(response){
+            clearCustomerInputFields();
+            getAllCustomer();
+            alert("Customer Removed Successfully!!!");
+        }else{
+            alert("Customer Not Removed.Please try again!!!")
+        }
+    }
+});
+
+// ------------ Remove btn event ------------
+function removeCustomer(id){
+    for(let i = 0; i < customersDB.length; i++){
+        if(customersDB[i].id == id){
+            customersDB.splice(i,1);
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
 
