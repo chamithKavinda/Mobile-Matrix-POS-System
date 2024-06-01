@@ -124,4 +124,40 @@ function updateCustomer(id){
     }
 }
 
+// ------------ Save btn event ------------
+$("#btnSaveCustomer").click(function(){
+    if(checkAllCustomer()){
+        saveCustomer();
+    }else{
+        alert("Something went wrong, please try again !!!");
+    }
+});
+
+// ------------ Save function ------------
+function saveCustomer(){
+    let customerId = $("#txtCusId").val();
+
+    //check customer if exists or not
+    if(searchCustomer(customerId.trim()) == undefined){
+        let customerName = $("#txtCusName").val();
+        let customerAddress = $("#txtCusAddress").val();
+        let customerSalary = $("#txtCusSalary").val();
+
+        let newCustomer = Object.assign({}, CustomerModel);
+
+        newCustomer.id = customerId;
+        newCustomer.name = customerName;
+        newCustomer.address = customerAddress;
+        newCustomer.salary = customerSalary;
+
+        customersDB.push(newCustomer);
+        clearCustomerInputFields();
+        getAllCustomer();
+        alert("Customer added Successsfully!!!");
+        loadCustomerIds();
+    }else{
+        alert("Customer exists.Please try again!!!")
+        clearCustomerInputFields();
+    }
+}
 
