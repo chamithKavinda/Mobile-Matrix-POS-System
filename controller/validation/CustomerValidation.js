@@ -1,4 +1,8 @@
-
+// ------regex for text fields-----
+const CUS_ID_REGEX = /^C\d{3}$/;
+const CUS_NAME_REGEX = /^[A-Za-z ]{5,}$/;
+const CUS_ADDRESS_REGEX = /^[0-9A-Za-z\s\.,#-]+$/;
+const CUS_SALARY_REGEX = /^[0-9]{2,}([.][0-9]{2})?$/;
 
 
 
