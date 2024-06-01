@@ -21,7 +21,6 @@ function checkValidationsCustomer(object){
     return false;
 }
 
-
 function setBorderCustomer(bool, object) {
     if (!bool){
         if(object.field.val().length >=1){
@@ -38,7 +37,6 @@ function setBorderCustomer(bool, object) {
     }
 }
 
-
 function checkAllCustomer(){
     for(let i=0; i< cus_vArray.length; i++){
         if(!checkValidationsCustomer(cus_vArray[i]))
@@ -47,4 +45,48 @@ function checkAllCustomer(){
     return true;
 }
 
+setBtnGroupCustomer();
 
+$("#txtCusId, #txtCusName, #txtCusAddress, #txtCusSalary").on("keydown keyup", function (e){
+    let indexNo = cus_vArray.indexOf(cus_vArray.find((c) => c.field.attr("id") == e.target.id));
+
+    if (e.key == "Tab") {
+        e.preventDefault();
+    }
+
+    checkValidationsCustomer(cus_vArray[indexNo]);
+
+    setBtnGroupCustomer();
+
+    if (e.key == "Enter") {
+        if (e.target.id != cus_vArray[cus_vArray.length-1].field.attr("id")) {
+            if (checkValidationsCustomer(cus_vArray[indexNo])) {
+                cus_vArray[indexNo+1].field.focus();
+            }
+        }else {
+            if (checkValidationsCustomer(cus_vArray[indexNo])) {
+                saveCustomer();
+            }
+        }
+    }
+});
+
+function setBtnGroupCustomer() {
+    $("#btnDeleteCustomer").prop("disabled", true);
+    $("#btnUpdateCustomer").prop("disabled", true);
+
+    if (checkAllCustomer()){
+        $("#btnSaveCustomer").prop("disabled", false);
+    }else{
+        $("#btnSaveCustomer").prop("disabled", true);
+    }
+
+    let id = $("#txtCusId").val();
+    if (searchCustomer(id) == undefined) {
+        $("#btnDeleteCustomer").prop("disabled", true);
+        $("#btnUpdateCustomer").prop("disabled", true);
+    }else {
+        $("#btnDeleteCustomer").prop("disabled", false);
+        $("#btnUpdateCustomer").prop("disabled", false);
+    }
+}
