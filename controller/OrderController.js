@@ -7,3 +7,10 @@ $("#selectFormCustomer").on('click', function(){
     enabledOrDisabledBtn();
     enabledCartBtn()
 });
+
+$("#selectItemFormItem").on('click', function () {
+    setItemDetails();
+    quantityManage();
+    enabledOrDisabledBtn()
+    enabledCartBtn()
+});
