@@ -122,3 +122,39 @@ function searchItem(itemCode) {
         return item.code == itemCode;
     });
 }
+
+// ------------ save btn event ------------
+$("#btnSaveItem").click(function (){
+    if (checkAllItems()){
+        saveItem();
+    }else {
+        alert("Something went wrong.Please try again!!!");
+    }
+});
+
+// ------------ save function ------------
+function saveItem() {
+    let itemCode = $("#txtItemCode").val();
+    // check customer if exists or not
+    if(searchItem(itemCode.trim()) == undefined){
+        let itemName = $("#txtItemName").val();
+        let itemPrice = $("#txtItemPrice").val();
+        let itemQuantity = $("#txtItemQuantity").val();
+
+        let newItem = Object.assign({}, itemModel);
+
+        newItem.code = itemCode;
+        newItem.name = itemName;
+        newItem.price = itemPrice;
+        newItem.quantity = itemQuantity;
+
+        itemsDB.push(newItem);
+        clearItemInputFields();
+        getAllItem();
+        alert("Item added Successfully!!!");
+        loadItemCodes();
+    }else{
+        alert("Item exists!!!")
+        clearItemInputFields();
+    }
+}
