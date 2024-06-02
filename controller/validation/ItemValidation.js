@@ -12,3 +12,11 @@ item_vArray.push({field: $("#txtItemPrice"), regex: ITEM_PRICE_REGEX});
 item_vArray.push({field: $("#txtItemQuantity"), regex: ITEM_QUANTITY_REGEX});
 
 
+function checkValidationsItem(object){
+    if(object.regex.test(object.field.val())){
+        setBorderItem(true, object)
+        return true;
+    }
+    setBorderItem(false, object)
+    return false;
+}
