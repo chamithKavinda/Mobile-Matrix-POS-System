@@ -115,3 +115,10 @@ function updateItem(code) {
         }
     }
 }
+
+// ------------ search function ------------
+function searchItem(itemCode) {
+    return itemsDB.find(function (item){
+        return item.code == itemCode;
+    });
+}
