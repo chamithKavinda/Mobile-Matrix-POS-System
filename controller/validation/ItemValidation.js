@@ -20,3 +20,26 @@ function checkValidationsItem(object){
     setBorderItem(false, object)
     return false;
 }
+
+function checkAllItems(){
+    for (let i = 0; i < item_vArray.length; i++) {
+        if (!checkValidationsItem(item_vArray[i])) return false;
+    }
+    return true;
+}
+
+function setBorderItem(bool, object) {
+    if (!bool){
+        if(object.field.val().length >=1){
+            object.field.css("border", "2px solid red");
+        }else{
+            object.field.css("border", "1px solid #ced4da");
+        }
+    }else{
+        if(object.field.val().length >=1){
+            object.field.css("border", "2px solid green");
+        }else{
+            object.field.css("border", "1px solid #ced4da");
+        }
+    }
+}
