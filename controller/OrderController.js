@@ -57,3 +57,16 @@ $("#cash").on("keydown keyup", function (e) {
     calculateBalance();
     enabledOrDisabledBtn()
 });
+
+function generateNextOrderId() {
+    let orderId = ordersDB[ordersDB.length-1].oid;
+    if (orderId!=null){
+        let strings = orderId.split("OID-");
+        let id= parseInt(strings[1]);
+        ++id;
+        let digit = id.toString().padStart(3, '0');
+        return "OID-" + digit;
+    }else {
+        return "OID-001";
+    }
+}
