@@ -85,3 +85,33 @@ function removeItem(code){
     }
     return false;
 }
+
+// ------------ update btn event ------------
+$("#btnUpdateItem").click(function (){
+    let code = $("#txtItemCode").val();
+    updateItem(code);
+    clearItemInputFields();
+});
+
+// ------------ update btn function ------------
+function updateItem(code) {
+    if(searchItem(code) == undefined){
+        alert("No such item. Please check the ID!");
+    }else{
+        let confirmation = confirm("Do you really want to update "+code+".?");
+        if (confirmation){
+            let item = searchItem(code);
+
+            let name = $("#txtItemName").val();
+            let price = $("#txtItemPrice").val();
+            let quantity = $("#txtItemQuantity").val();
+
+            item.name = name;
+            item.price = price;
+            item.quantity = quantity;
+
+            getAllItem();
+            alert("Item updated!");
+        }
+    }
+}
