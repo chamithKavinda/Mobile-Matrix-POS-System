@@ -70,3 +70,11 @@ function generateNextOrderId() {
         return "OID-001";
     }
 }
+
+function loadCustomerIds() {
+    $("#selectFormCustomer").empty();
+    $("#selectFormCustomer").append(`<option selected disabled>Select here</option>`);
+    for (const customer of customersDB) {
+        $("#selectFormCustomer").append(`<option>${customer.id}</option>`);
+    }
+}
