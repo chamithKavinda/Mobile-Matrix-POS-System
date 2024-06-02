@@ -32,3 +32,8 @@ $("#btnPurchase").on('click', function () {
     }
     loadAllOrderDetails();
 });
+
+$("#orderQty").on("keydown keyup", function (e) {
+    enabledOrDisabledBtn();
+    enabledCartBtn();
+});
