@@ -16,7 +16,7 @@ $("#btnGetAllItem").click(function (){
     getAllItem();
 })
 
-// --------------Get all  function---------------------------
+// ------------ Get all  function ------------
 function getAllItem(){
     $("#tblItem").empty();
     $("#modalItemTable").empty();
@@ -40,3 +40,22 @@ function getAllItem(){
         bindTableRowEventsItem();
     }
 }
+
+// ------------ Bind row to fields function ------------
+function bindTableRowEventsItem(){
+    $("#tblItem>tr").click(function(){
+        let code = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let price = $(this).children().eq(2).text();
+        let quantity = $(this).children().eq(3).text();
+
+        $("#txtItemCode").val(code);
+        $("#txtItemName").val(name);
+        $("#txtItemPrice").val(price);
+        $("#txtItemQuantity").val(quantity);
+
+        $("#btnRemoveItem").prop("disabled", false);
+    });
+}
+
+
