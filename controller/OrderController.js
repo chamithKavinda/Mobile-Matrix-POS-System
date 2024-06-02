@@ -1,4 +1,15 @@
-
+$("#orderId").val(generateNextOrderId());
+$("#total").text(0.00);
+$("#subTotal").text(0.00);
+var date = new Date();
+$("#orderDate").val(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`);
+loadCustomerIds();
+loadItemCodes();
+$("#discount").val(0.00);
+$("#balance").val(0.00);
+$("#btnPlaceOrder").prop("disabled",true);
+$("#btnPurchase").prop("disabled",true);
+let orderQty;
 
 
 
@@ -36,4 +47,13 @@ $("#btnPurchase").on('click', function () {
 $("#orderQty").on("keydown keyup", function (e) {
     enabledOrDisabledBtn();
     enabledCartBtn();
+});
+
+$("#discount").on("keydown keyup", function (e) {
+    calculateSubTotal();
+});
+
+$("#cash").on("keydown keyup", function (e) {
+    calculateBalance();
+    enabledOrDisabledBtn()
 });
