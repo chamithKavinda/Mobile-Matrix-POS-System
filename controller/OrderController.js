@@ -14,3 +14,8 @@ $("#selectItemFormItem").on('click', function () {
     enabledOrDisabledBtn()
     enabledCartBtn()
 });
+
+$("#btnPlaceOrder").on('click', function () {
+    $("#tblPlaceOrder").empty();
+    addToPlaceOrderTable();
+});
