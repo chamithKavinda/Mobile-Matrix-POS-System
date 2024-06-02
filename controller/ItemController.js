@@ -58,4 +58,30 @@ function bindTableRowEventsItem(){
     });
 }
 
+// ------------ Remove btn event ------------
+$("#btnRemoveItem").click(function (){
+    let code = $("#txtItemCode").val();
 
+    let confirmation = confirm("Are you want to Remove "+code+" ?");
+    if (confirmation){
+        let response = removeItem(code);
+        if (response){
+            clearItemInputFields();
+            getAllItem();
+            alert("Item Removed Successfully!!!");
+        }else {
+            alert("Item not Removed.Pleases try again!!!")
+        }
+    }
+});
+
+// ------------ Remove btn Function ------------
+function removeItem(code){
+    for(let i=0; i<itemsDB.length; i++){
+        if(itemsDB[i].code == code){
+            itemsDB.splice(i,1);
+            return true;
+        }
+    }
+    return false;
+}
