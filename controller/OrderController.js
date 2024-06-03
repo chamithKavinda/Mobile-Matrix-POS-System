@@ -193,3 +193,17 @@ function placeOrderDetails() {
     alert("Order has been placed successfully!.")
     generateNextOrderId();
 }
+
+function loadAllOrderDetails() {
+    for (let i = 0; i < cartDetails.length; i++) {
+        let row = `<tr>
+                     <td>${cartDetails[i].itemCode}</td>
+                     <td>${cartDetails[i].itemName}</td>
+                     <td>${cartDetails[i].unitPrice}</td>
+                     <td>${cartDetails[i].quantity}</td>
+                     <td>${cartDetails[i].total}</td>
+                    </tr>`;
+        $("#tblPlaceOrder").append(row);
+        doubleClickItem();
+    }
+}
