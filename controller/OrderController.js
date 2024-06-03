@@ -119,3 +119,12 @@ function quantityManage() {
         }
     }
 }
+
+function isExists(itemCode) {
+    for (const item of cartDetails) {
+        if (item.itemCode === itemCode) {
+            return item;
+        }
+    }
+    return null;
+}
