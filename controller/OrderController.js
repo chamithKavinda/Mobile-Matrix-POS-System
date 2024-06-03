@@ -110,3 +110,12 @@ function setItemDetails() {
         }
     }
 }
+
+function quantityManage() {
+    for (const cartD of cartDetails) {
+        if (cartD.itemCode === $("#selectItemFormItem").val()){
+            let newQty = $("#quantity").val()-orderQty;
+            $("#quantity").val(newQty);
+        }
+    }
+}
