@@ -207,3 +207,20 @@ function loadAllOrderDetails() {
         doubleClickItem();
     }
 }
+
+function calculateTotal() {
+    let Total =0;
+    for (let i = 0; i <cartDetails.length; i++) {
+        Total=Total+parseFloat(cartDetails[i].total)
+    }
+    $("#total, #subTotal").text(Total.toFixed(2));
+}
+
+
+
+
+
+
+
+
+
