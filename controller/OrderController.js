@@ -78,3 +78,11 @@ function loadCustomerIds() {
         $("#selectFormCustomer").append(`<option>${customer.id}</option>`);
     }
 }
+
+function loadItemCodes() {
+    $("#selectItemFormItem").empty();
+    $("#selectItemFormItem").append(`<option selected disabled>Select here</option>`);
+    for (const items of itemsDB) {
+        $("#selectItemFormItem").append(`<option>${items.code}</option>`);
+    }
+}
