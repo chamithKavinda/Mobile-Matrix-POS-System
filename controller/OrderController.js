@@ -162,3 +162,34 @@ function addToPlaceOrderTable() {
     }
 }
 
+function placeOrderDetails() {
+    let orderId = $("#orderId").val();
+    let orderDate = $("#orderDate").val();
+    let customerId = $("#cusId").val();
+    let iCode = $("#itemId").val();
+    let orQty =$(this).children(":eq(3)").text();
+    let tota = $(this).children(":eq(4)").text();
+
+    let orders = Object.assign({},orderModel);
+    orders.oid = orderId;
+    orders.date = orderDate;
+    orders.customerID = customerId;
+    ordersDB.push(orders);
+
+    for (const cartD of cartDetails) {
+        let orderDetail = Object.assign({},orderDetailsModel);
+        orderDetail.oid = orderId;
+        orderDetail.code = cartD.itemCode;
+        orderDetail.qty = cartD.quantity;
+        orderDetail.payment = cartD.total;
+        let items = searchItem( cartD.itemCode);
+
+        if (items!=null){
+            items.qtyOnHand=items.qtyOnHand-cartD.quantity;
+        }
+
+        orders.orderDetails.push(orderDetail);
+    }
+    alert("Order has been placed successfully!.")
+    generateNextOrderId();
+}
