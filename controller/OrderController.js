@@ -99,3 +99,14 @@ function setCustomerDetails() {
     }
 }
 
+function setItemDetails() {
+    for (const item of itemsDB) {
+        if (item.code === $("#selectItemFormItem").val()) {
+            $("#itemId").val(`${item.code}`);
+            $("#itemName").val(item.name);
+            $("#price").val(item.price);
+            $("#quantity").val(item.quantity);
+            break;
+        }
+    }
+}
