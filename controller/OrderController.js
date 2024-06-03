@@ -223,7 +223,16 @@ function calculateSubTotal() {
     $("#subTotal").text(newSubTotal.toFixed(2));
 }
 
-
+function calculateBalance() {
+    if ($("#cash").val().length!=0 && ($("#subTotal").text().length!=0)){
+        let subTotal = parseFloat($("#subTotal").text());
+        let cash = parseFloat($("#cash").val());
+        let balance = cash - subTotal;
+        $("#balance").val(balance.toFixed(2));
+    }else {
+        $("#balance").val(0.00);
+    }
+}
 
 
 
