@@ -10,3 +10,14 @@ function clearPlaceOrderTextFields() {
     $("#total").text(0.00);
     $("#subTotal").text(0.00);
 }
+
+function checkOrderValidations(object) {
+    if (object.regex.test(object.field.val())) {
+        setBorder(true, object)
+        return true;
+    }
+    setBorder(false, object)
+    return false;
+}
+
+
