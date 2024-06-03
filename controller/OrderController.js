@@ -216,7 +216,12 @@ function calculateTotal() {
     $("#total, #subTotal").text(Total.toFixed(2));
 }
 
-
+function calculateSubTotal() {
+    let subTotal = parseFloat($("#total").text());
+    let discount = subTotal * parseFloat($("#discount").val()) * 0.01;
+    let newSubTotal = subTotal - discount;
+    $("#subTotal").text(newSubTotal.toFixed(2));
+}
 
 
 
