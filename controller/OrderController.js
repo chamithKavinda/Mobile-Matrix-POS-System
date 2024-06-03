@@ -86,3 +86,16 @@ function loadItemCodes() {
         $("#selectItemFormItem").append(`<option>${items.code}</option>`);
     }
 }
+
+function setCustomerDetails() {
+    for (const customer of customersDB) {
+        if (customer.id === $("#selectFormCustomer").val()) {
+            $("#cusId").val(`${customer.id}`);
+            $("#cusName").val(customer.name);
+            $("#cusAddress").val(customer.address);
+            $("#cusSalary").val(customer.salary);
+            break;
+        }
+    }
+}
+
