@@ -128,3 +128,37 @@ function isExists(itemCode) {
     }
     return null;
 }
+
+function addToPlaceOrderTable() {
+    $("#tblPlaceOrder").empty();
+    if (($("#orderQty").val().length!=0) && (parseInt($("#orderQty").val())<=parseInt($("#quantity").val())) ){
+        let code = $("#itemId").val();
+        let name = $("#itemName").val();
+        let price = parseFloat($("#price").val()).toFixed(2);
+        orderQty = parseInt($("#orderQty").val())
+        let total = (price * orderQty).toFixed(2);
+        let exists = isExists($("#selectItemFormItem").val());
+
+        if (exists != null) {
+            exists.quantity = exists.quantity + orderQty;
+            total = (price * exists.quantity).toFixed(2);
+            exists.total = total;
+        } else {
+            var cartTm = Object.assign({}, cartModel);
+            cartTm.itemCode = code;
+            cartTm.itemName = name;
+            cartTm.unitPrice = price;
+            cartTm.quantity = orderQty;
+            cartTm.total = total;
+            cartDetails.push(cartTm);
+        }
+        alert("Order has been added successfully!.");
+        quantityManage();
+        calculateTotal();
+        $("#orderQty").val("");
+        loadAllOrderDetails();
+    }else {
+        alert("Please check the quantity!. Order has been added unsuccessfully!.");
+    }
+}
+
