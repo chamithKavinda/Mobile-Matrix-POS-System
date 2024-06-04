@@ -29,3 +29,11 @@ function setLastView(){
             setView($("#homeContent"));
     }
 }
+
+function setView(viewObject) {
+    clearAll();
+    viewObject.css("display","block");
+    saveLastView(viewObject.get(0).id);
+    console.log(viewObject.get(0).id);
+}
+
