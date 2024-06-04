@@ -34,7 +34,6 @@ function setView(viewObject) {
     clearAll();
     viewObject.css("display","block");
     saveLastView(viewObject.get(0).id);
-    console.log(viewObject.get(0).id);
 }
 
 function saveLastView(id) {
@@ -53,3 +52,20 @@ function saveLastView(id) {
             break;
     }
 }
+
+// --bindEvents__
+$("#linkHome").click(function (){
+    setView($("#homeContent"));
+})
+
+$("#linkCustomer").click(function (){
+    setView($("#customerContent"));
+})
+
+$("#itemLink").click(function (){
+    setView($("#itemContent"));
+})
+
+$("#orderLink").click(function (){
+    setView($("#orderContent"));
+})
