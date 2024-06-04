@@ -37,3 +37,19 @@ function setView(viewObject) {
     console.log(viewObject.get(0).id);
 }
 
+function saveLastView(id) {
+    switch (id){
+        case "homeContent":
+            localStorage.setItem("view", "HOME");
+            break;
+        case "customerContent":
+            localStorage.setItem("view", "CUSTOMER");
+            break;
+        case "itemContent":
+            localStorage.setItem("view", "ITEM");
+            break;
+        case "orderContent":
+            localStorage.setItem("view", "ORDER");
+            break;
+    }
+}
