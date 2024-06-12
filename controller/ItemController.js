@@ -1,3 +1,4 @@
+getAllItem();
 
 // ------------ clear btn event ------------
 $("#btnClearItem").click(function(){

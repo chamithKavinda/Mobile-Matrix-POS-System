@@ -114,7 +114,7 @@
                                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl d-flex flex-column">
                                     <!-- trigger model button -->
                                     <button id="getAll" type="button" class="btn btn-outline-ss w-45 align-self-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Get All Customer Details
+                                        Get All Customers Details
                                     </button>
                                     <!-- Model -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -200,35 +200,6 @@
                             </form>
                         </div>
                     </div>   
-
-                    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl d-flex justify-content-center flex-column">
-                        <!-- Button trigger modal -->
-                        <button id="btnGetAllItem" type="button" class="btn btn-outline-ss w-45 align-self-end" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-                            Get All Items Details 
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <table class="table table-borderd">
-                                            <thead class="table-light">
-                                                <tr>
-                                                    <th scope="col" class="bg-success text-white">Code</th>
-                                                    <th scope="col" class="bg-success text-white">Name</th>
-                                                    <th scope="col" class="bg-success text-white">Price</th>
-                                                    <th scope="col" class="bg-success text-white">Quantity</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="modalItemTable"></tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
 
@@ -240,11 +211,44 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <form class="d-flex" role="search">
-                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-ss" type="submit">Search</button>
-                                </form>
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl">
+                                    <form class="form-control-sm">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <input type="text" class="form-control form-control-sm me-2" id="txtItemSearch" placeholder="Search Item's  ID here ...">
+                                            <button id="btnSearchItem" type="button" class="btn btn-outline-ss btn-sm me-2">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl d-flex justify-content-center flex-column">
+                                    <!-- Button trigger modal -->
+                                    <button id="btnGetAllItem" type="button" class="btn btn-outline-ss w-45 align-self-end" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                        Get All Items Details 
+                                    </button>
+            
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <table class="table table-borderd">
+                                                        <thead class="table-light">
+                                                            <tr>
+                                                                <th scope="col" class="bg-success text-white">Code</th>
+                                                                <th scope="col" class="bg-success text-white">Name</th>
+                                                                <th scope="col" class="bg-success text-white">Price</th>
+                                                                <th scope="col" class="bg-success text-white">Quantity</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="modalItemTable"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                            </div>
+
+                        </div>
                         </div>
                     </div>
 

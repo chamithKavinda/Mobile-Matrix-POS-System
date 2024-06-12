@@ -30,7 +30,7 @@ function setBorderCustomer(bool, object) {
         }
     }else{
         if(object.field.val().length >=1){
-            object.field.css("border", "2px solid green");
+            object.field.css("border", "2px solid purple");
         }else{
             object.field.css("border", "1px solid #ced4da");
         }

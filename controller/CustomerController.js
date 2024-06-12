@@ -95,12 +95,7 @@ function searchCustomer(customerId) {
     });
 }
 
-// ------------ Update btn event ------------
-$("#btnUpdateCustomer").click(function(){
-    let id = $("#txtCusId").val();
-    updateCustomer(id);
-    clearCustomerInputFields();
-});
+
 
 
 // Select the button and text field
@@ -128,28 +123,35 @@ $("#modalTable").append(row);
 });
 
 
-// ------------ Update btn Function ------------
-function updateCustomer(id){
-    if(searchCustomer(id) == undefined){
-        alert("Can't find Customer.Please check the Customer ID!!!");
-    }else{
-        let confirmation = confirm("Do you Really want to update this Customer?");
-        if(confirmation){
-            let customer = searchCustomer(id);
-
-            let name = $("txtCusName").val();
-            let address = $("txtCusAddress").val();
-            let salary = $("txtCusSalary").val();
-
-            customer.name = name;
-            customer.address = address;
-            customer.salary = salary;
-
-            getAllCustomer();
-            alert("Customer Updated Successfully!!!");
-        }
-    }
-}
+// --------------Update btn event---------------------------
+$("#btnUpdateCustomer").click(function (){
+    let id = $("#txtCusId").val();
+    updateCustomer(id);
+    clearCustomerInputFields();
+ });
+ 
+ // --------------Update Customer function---------------------------
+ function updateCustomer(id) {
+     if(searchCustomer(id) == undefined){
+         alert("No such customer. Please check the ID!");
+     }else{
+         let confirmation = confirm("Do you really want to update this customer.?");
+         if (confirmation){
+             let customer = searchCustomer(id);
+ 
+             let name = $("#txtCusName").val();
+             let address = $("#txtCusAddress").val();
+             let salary = $("#txtCusSalary").val();
+ 
+             customer.name = name;
+             customer.address = address;
+             customer.salary = salary;
+ 
+             getAllCustomer();
+             alert("Customer updated!");
+         }
+     }
+ }
 
 // ------------ Save btn event ------------
 $("#btnSaveCustomer").click(function(){
