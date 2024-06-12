@@ -10,7 +10,7 @@
 </head>
 <body>
     <!--------------------------------------- NavBar --------------------------------------->
-    <nav id="NavBar" class="navbar navbar-expand-lg shadow-lg ">
+    <nav id="NavBar" class="navbar navbar-expand-lg shadow-lg">
         <div class="container-fluid">
             <a class="navbar-brand text-white fw-bold"  href="#">Mobile Matrix</a>
 
@@ -90,7 +90,7 @@
                     </div>
                 </div>
 
-                <!-- customer search form  -->
+                <!-- customer search form -->
                 <div class="col-sm-12 col-md-12 col-lg  col=xxl">
                     <div class="card mb-4 shadow-lg">
                         <div class="card-header text-white fw-bold">
@@ -98,53 +98,12 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl">
-                                    <form class="form-control-sm">
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control form-control-sm" id="exampleInput" placeholder="Search here...">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
-                                                <button id="btnSearchCustomer" type="button" class="btn btn-outline-ss btn-sm mb-2">Search</button>
-                                            </div>
-                                            <div class="col-sm-6 col-md-6 col-lg-5 col-xl-5 col-xxl-3">
-                                                <select class="form-select form-select-sm" aria-label="Default select example" >
-                                                    <option selected>Name</option>
-                                                    <option value="1">ID</option>
-                                                    <option value="2">Address</option>
-                                                    <option value="3">Salary</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
 
-                                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl d-flex justify-content-center flex-column">
-                                    <!-- trigger model button -->
-                                    <button id="getAll" type="button" class="btn btn-outline-ss w-25 align-self-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Get All 
-                                    </button>
-                                    <!-- Model -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <table class="table table-borderd">
-                                                        <thead class="table-light">
-                                                            <tr>
-                                                                <th scope="col" class="bg-success text-white">Id</th>
-                                                                <th scope="col" class="bg-success text-white">Name</th>
-                                                                <th scope="col" class="bg-success text-white">Address</th>
-                                                                <th scope="col" class="bg-success text-white">Salary</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="modalTable"></tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <form class="d-flex" role="search">
+                                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-ss" type="submit">Search</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -162,6 +121,33 @@
                             </thead>
                             <tbody id="tblCustomer"></tbody>
                         </table>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl d-flex flex-column">
+                    <!-- trigger model button -->
+                    <button id="getAll" type="button" class="btn btn-outline-ss w-25 align-self-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Get All 
+                    </button>
+                    <!-- Model -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <table class="table table-borderd">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col" class="bg-success text-white">Id</th>
+                                                <th scope="col" class="bg-success text-white">Name</th>
+                                                <th scope="col" class="bg-success text-white">Address</th>
+                                                <th scope="col" class="bg-success text-white">Salary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="modalTable"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
