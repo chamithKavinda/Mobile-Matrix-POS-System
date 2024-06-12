@@ -85,7 +85,7 @@ $("#orderQty").on("keydown keyup input", function (e){
     let qty = parseInt($("#quantity").val());
     let orderQty = parseInt($("#orderQty").val());
     if (qty >= orderQty && qty > 0){
-        $("#orderQty").css("border", "2px solid green");
+        $("#orderQty").css("border", "2px solid purple");
         $("#orderQtyError").text("");
         $("#btnPlaceOrder").prop("disabled", false);
     }
