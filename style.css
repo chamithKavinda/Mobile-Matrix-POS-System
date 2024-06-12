@@ -1,5 +1,4 @@
 /* ------------------- Home ------------------- */
-
 #homeContent{
     background: url(/assest/images/home\ Image.jpg);
     width: 100%;
@@ -7,6 +6,17 @@
     background-repeat: no-repeat;
     position: fixed;
     background-size: cover;
+}
+
+.date-time-wrapper{
+    color: #fff;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: larger;
+}
+
+.time-display{
+    margin-top: 5px;
 }
 
 
@@ -17,6 +27,8 @@
     transform: translateX(-100%);
     opacity: 0;
     animation: RightSlide 1s ease forwards;
+    margin-left: 20px;
+    
 }
 
 @keyframes RightSlide{
@@ -72,7 +84,6 @@
 
 
 /* ---- Customer Detail Form ---- */
-
 .card-header{
     background-color:rgb(164, 110, 252);
 }

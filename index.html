@@ -10,7 +10,7 @@
 </head>
 <body>
     <!--------------------------------------- NavBar --------------------------------------->
-    <nav id="NavBar" class="navbar navbar-expand-lg shadow-lg">
+    <nav id="NavBar" class="navbar navbar-expand-lg shadow-lg ">
         <div class="container-fluid">
             <a class="navbar-brand text-white fw-bold"  href="#">Mobile Matrix</a>
 
@@ -20,18 +20,18 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul id="navUl" class="navbar-nav nav-underline fw-bold"> 
+                <ul id="navUL" class="navbar-nav nav-underline">
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="linkHome">Home</a>
+                        <a class="nav-link" href="#" id="linkHome">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="linkCustomer">Customer</a>
+                        <a class="nav-link" href="#" id="linkCustomer">Customer</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="linkItems">Items</a>
+                        <a class="nav-link" href="#" id="itemLink">Items</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" id="linkOrders">Orders</a>
+                        <a class="nav-link" href="#" id="orderLink">Orders</a>
                     </li>
                 </ul>
             </div>
@@ -40,7 +40,7 @@
 
     <!--------------------------------------- Home --------------------------------------->
     <section id="homeContent">
-        <div class="date-time-wrapper"> 
+        <div class="date-time-wrapper fw-bold"> 
             <div class="date-display"> 
                 <i class="fa fa-calendar"></i> <span id="dateDisplay"></span> 
             </div> 
@@ -48,8 +48,6 @@
                 <i class="fa fa-clock-o"></i> <span id="timeDisplay"></span>
              </div> 
         </div>
-
-        
     </section>
 
     <!--------------------------------------- Customer --------------------------------------->
@@ -92,7 +90,7 @@
                     </div>
                 </div>
 
-                <!-- customer search form -->
+                <!-- customer search form  -->
                 <div class="col-sm-12 col-md-12 col-lg  col=xxl">
                     <div class="card mb-4 shadow-lg">
                         <div class="card-header text-white fw-bold">
