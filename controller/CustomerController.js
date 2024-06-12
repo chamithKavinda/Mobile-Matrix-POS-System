@@ -38,8 +38,9 @@ function getAllCustomer(){
         $("#tblCustomer").append(row);
         $("#modalTable").append(row);
 
-        bindTableRowEventsCustomer();
+
     }
+    bindTableRowEventsCustomer();
 }
 
 // ------------ Bind row to fields function ------------
@@ -61,7 +62,7 @@ function bindTableRowEventsCustomer() {
 
 // ------------ Remove btn event ------------
 $("#btnRemoveCustomer").click(function(){
-    let id = $("txtCusId").val();
+    let id = $("#txtCusId").val();
 
     let confirmation = confirm("Are you want to delete" + id + "?");
     if(confirmation){
@@ -100,6 +101,32 @@ $("#btnUpdateCustomer").click(function(){
     updateCustomer(id);
     clearCustomerInputFields();
 });
+
+
+// Select the button and text field
+$("#btnSearchCustomer").click(function(){
+
+    $("#tblCustomer").empty();
+    $("#modalTable").empty();
+
+    let id = $("#txtCustomerSearch").val();
+    console.log(id);
+
+    let customer = searchCustomer(id);
+    
+
+    let row = `<tr>
+    <td>${customer.id}</td>
+    <td>${customer.name}</td>
+    <td>${customer.address}</td>
+    <td>${customer.salary}</td>
+</tr>`;
+
+$("#tblCustomer").append(row);
+$("#modalTable").append(row);
+
+});
+
 
 // ------------ Update btn Function ------------
 function updateCustomer(id){
