@@ -94,6 +94,30 @@ $("#btnUpdateItem").click(function (){
     clearItemInputFields();
 });
 
+//------------- Search item --------------------
+$("#btnSearchItem").click(function(){
+
+    $("#tblItem").empty();
+    $("#modalTable").empty();
+
+    let code = $("#txtItemSearch").val();
+    console.log(code);
+
+    let item = searchItem(code);
+    
+    let row = `<tr>
+    <td>${item.code}</td>
+    <td>${item.name}</td>
+    <td>${item.price}</td>
+    <td>${item.quantity}</td>
+</tr>`;
+
+$("#tblItem").append(row);
+$("#modalTable").append(row);
+
+});
+
+
 // ------------ update btn function ------------
 function updateItem(code) {
     if(searchItem(code) == undefined){

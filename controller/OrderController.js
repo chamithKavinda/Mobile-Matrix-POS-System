@@ -7,13 +7,11 @@ loadCustomerIds();
 loadItemCodes();
 $("#discount").val(0.00);
 $("#balance").val(0.00);
-$("#btnPlaceOrder").prop("disabled",true);
-$("#btnPurchase").prop("disabled",true);
+$("#btnPlaceOrder").prop("disabled", true);
+$("#btnPurchase").prop("disabled", true);
 let orderQty;
 
-
-
-$("#selectFormCustomer").on('click', function(){
+$("#selectFormCustomer").on('click', function () {
     setCustomerDetails();
     enabledOrDisabledBtn();
     enabledCartBtn()
@@ -27,18 +25,17 @@ $("#selectItemFormItem").on('click', function () {
 });
 
 $("#btnPlaceOrder").on('click', function () {
-    $("#tblPlaceOrder").empty();
     addToPlaceOrderTable();
 });
 
 $("#btnPurchase").on('click', function () {
-    if (parseFloat($("#cash").val())>= parseFloat($("#subTotal").text())){
+    if (parseFloat($("#cash").val()) >= parseFloat($("#subTotal").text())) {
         placeOrderDetails();
         clearPlaceOrderTextFields();
         $("#tblPlaceOrder").empty();
         cartDetails = [];
         $("#orderId").val(generateNextOrderId());
-    }else {
+    } else {
         alert("Insufficient credit! please check cash...");
     }
     loadAllOrderDetails();
@@ -59,14 +56,14 @@ $("#cash").on("keydown keyup", function (e) {
 });
 
 function generateNextOrderId() {
-    let orderId = ordersDB[ordersDB.length-1].oid;
-    if (orderId!=null){
+    let orderId = ordersDB[ordersDB.length - 1].oid;
+    if (orderId != null) {
         let strings = orderId.split("OID-");
-        let id= parseInt(strings[1]);
+        let id = parseInt(strings[1]);
         ++id;
         let digit = id.toString().padStart(3, '0');
         return "OID-" + digit;
-    }else {
+    } else {
         return "OID-001";
     }
 }
@@ -113,8 +110,8 @@ function setItemDetails() {
 
 function quantityManage() {
     for (const cartD of cartDetails) {
-        if (cartD.itemCode === $("#selectItemFormItem").val()){
-            let newQty = $("#quantity").val()-orderQty;
+        if (cartD.itemCode === $("#selectItemFormItem").val()) {
+            let newQty = $("#quantity").val() - orderQty;
             $("#quantity").val(newQty);
         }
     }
@@ -130,8 +127,7 @@ function isExists(itemCode) {
 }
 
 function addToPlaceOrderTable() {
-    $("#tblPlaceOrder").empty();
-    if (($("#orderQty").val().length!=0) && (parseInt($("#orderQty").val())<=parseInt($("#quantity").val())) ){
+    if (($("#orderQty").val().length != 0) && (parseInt($("#orderQty").val()) <= parseInt($("#quantity").val()))) {
         let code = $("#itemId").val();
         let name = $("#itemName").val();
         let price = parseFloat($("#price").val()).toFixed(2);
@@ -155,9 +151,9 @@ function addToPlaceOrderTable() {
         alert("Order has been added successfully!.");
         quantityManage();
         calculateTotal();
-        $("#orderQty").val("");
         loadAllOrderDetails();
-    }else {
+        $("#orderQty").val("");
+    } else {
         alert("Please check the quantity!. Order has been added unsuccessfully!.");
     }
 }
@@ -167,34 +163,35 @@ function placeOrderDetails() {
     let orderDate = $("#orderDate").val();
     let customerId = $("#cusId").val();
     let iCode = $("#itemId").val();
-    let orQty =$(this).children(":eq(3)").text();
+    let orQty = $(this).children(":eq(3)").text();
     let tota = $(this).children(":eq(4)").text();
 
-    let orders = Object.assign({},orderModel);
+    let orders = Object.assign({}, orderModel);
     orders.oid = orderId;
     orders.date = orderDate;
     orders.customerID = customerId;
     ordersDB.push(orders);
 
     for (const cartD of cartDetails) {
-        let orderDetail = Object.assign({},orderDetailsModel);
+        let orderDetail = Object.assign({}, orderDetailsModel);
         orderDetail.oid = orderId;
         orderDetail.code = cartD.itemCode;
         orderDetail.qty = cartD.quantity;
         orderDetail.payment = cartD.total;
-        let items = searchItem( cartD.itemCode);
+        let items = searchItem(cartD.itemCode);
 
-        if (items!=null){
-            items.qtyOnHand=items.qtyOnHand-cartD.quantity;
+        if (items != null) {
+            items.qtyOnHand = items.qtyOnHand - cartD.quantity;
         }
 
         orders.orderDetails.push(orderDetail);
     }
-    alert("Order has been placed successfully!.")
+    alert("Order has been placed successfully!.");
     generateNextOrderId();
 }
 
 function loadAllOrderDetails() {
+    $("#tblPlaceOrder").empty();
     for (let i = 0; i < cartDetails.length; i++) {
         let row = `<tr>
                      <td>${cartDetails[i].itemCode}</td>
@@ -202,16 +199,26 @@ function loadAllOrderDetails() {
                      <td>${cartDetails[i].unitPrice}</td>
                      <td>${cartDetails[i].quantity}</td>
                      <td>${cartDetails[i].total}</td>
-                    </tr>`;
+                     <td><button class="btn btn-danger btn-remove">Remove</button></td>
+                   </tr>`;
         $("#tblPlaceOrder").append(row);
-        doubleClickItem();
     }
+    $(".btn-remove").on('click', function () {
+        removeItem($(this).closest('tr').find('td:first').text());
+    });
+}
+
+function removeItem(itemCode) {
+    cartDetails = cartDetails.filter(item => item.itemCode !== itemCode);
+    loadAllOrderDetails();
+    calculateTotal();
+    calculateSubTotal();
 }
 
 function calculateTotal() {
-    let Total =0;
-    for (let i = 0; i <cartDetails.length; i++) {
-        Total=Total+parseFloat(cartDetails[i].total)
+    let Total = 0;
+    for (let i = 0; i < cartDetails.length; i++) {
+        Total = Total + parseFloat(cartDetails[i].total)
     }
     $("#total, #subTotal").text(Total.toFixed(2));
 }
@@ -224,17 +231,12 @@ function calculateSubTotal() {
 }
 
 function calculateBalance() {
-    if ($("#cash").val().length!=0 && ($("#subTotal").text().length!=0)){
+    if ($("#cash").val().length != 0 && ($("#subTotal").text().length != 0)) {
         let subTotal = parseFloat($("#subTotal").text());
         let cash = parseFloat($("#cash").val());
         let balance = cash - subTotal;
         $("#balance").val(balance.toFixed(2));
-    }else {
+    } else {
         $("#balance").val(0.00);
     }
 }
-
-
-
-
-

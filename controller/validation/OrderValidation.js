@@ -56,7 +56,7 @@ function setBorder(bol, ob) {
         }
     } else {
         if (ob.field.val().length >= 1) {
-            ob.field.css("border", "2px solid green");
+            ob.field.css("border", "2px solid purple");
         } else {
             ob.field.css("border", "1px solid #ced4da");
         }
