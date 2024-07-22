@@ -77,7 +77,7 @@ $("#btnRemoveCustomer").click(function(){
     }
 });
 
-// ------------ Remove btn event ------------
+// ------------ Remove btn function ------------
 function removeCustomer(id){
     for(let i = 0; i < customersDB.length; i++){
         if(customersDB[i].id == id){
@@ -98,7 +98,7 @@ function searchCustomer(customerId) {
 
 
 
-// Select the button and text field
+// Search Customer
 $("#btnSearchCustomer").click(function(){
 
     $("#tblCustomer").empty();

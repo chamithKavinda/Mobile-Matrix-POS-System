@@ -22,4 +22,5 @@ var ordersDB = [
         ]
     }
 ];
+
 var cartDetails=[];

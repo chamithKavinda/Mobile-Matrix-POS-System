@@ -9,44 +9,61 @@
     <title>Mobile Matrix</title>
 </head>
 <body>
-    <!--------------------------------------- NavBar --------------------------------------->
-    <nav id="NavBar" class="navbar navbar-expand-lg shadow-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white fw-bold"  href="#">Mobile Matrix</a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul id="navUL" class="navbar-nav nav-underline">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="linkHome">Home</a>
+    <!--------------------------------------- Dashboard --------------------------------------->
+    <section id="dashboard">
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="logo-gitlab"></ion-icon></span>
+                            <span class="title" style="font-size: 1.5em; font-weight: 500;">Mobile Matrix Navigator</span>
+                        </a> 
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="linkCustomer">Customer</a>
+                    <li class="hovered">
+                        <a href="#">
+                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="title">Dashboard</span>
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="itemLink">Items</a>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                            <span class="title">Customers</span>
+                        </a> 
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="orderLink">Orders</a>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="pricetags-outline"></ion-icon></span>
+                            <span class="title">Items</span>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="bag-handle-outline"></ion-icon></span>
+                            <span class="title">Orders</span>
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                            <span class="title">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                            <span class="title">Help</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                            <span class="title">Sign Out</span>
+                        </a>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-
-    <!--------------------------------------- Home --------------------------------------->
-    <section id="homeContent">
-        <div class="date-time-wrapper fw-bold"> 
-            <div class="date-display"> 
-                <i class="fa fa-calendar"></i> <span id="dateDisplay"></span> 
-            </div> 
-            <div class="time-display"> 
-                <i class="fa fa-clock-o"></i> <span id="timeDisplay"></span>
-             </div> 
         </div>
     </section>
 
@@ -444,5 +461,8 @@
 
     <script src="/Model/OrderDetailsModel.js"></script>
     <script src="/Model/cartModel.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

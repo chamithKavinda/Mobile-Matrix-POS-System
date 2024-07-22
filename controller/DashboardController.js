@@ -1,12 +1,12 @@
 initUI();
 
 function clearAll(){
-    $("#homeContent , #customerContent , #itemContent , #orderContent").css("display","none");
+    $("#dashboard , #customerContent , #itemContent , #orderContent").css("display","none");
 }
 
 function initUI(){
     clearAll();
-    $("#homeContet").css("display","block");
+    $("#dashboard").css("display","block");
     setLastView();
 }
 
@@ -14,7 +14,7 @@ function setLastView(){
     let view = localStorage.getItem("view")
     switch(view){
         case "HOME":
-            setView($("#homeContent"));
+            setView($("#dashboard"));
             break;
         case "CUSTOMER":
             setView($("#customerContent"));
@@ -26,7 +26,7 @@ function setLastView(){
             setView($("#orderContent"));
             break;
         default:
-            setView($("#homeContent"));
+            setView($("#dashboard"));
     }
 }
 
@@ -38,8 +38,8 @@ function setView(viewObject) {
 
 function saveLastView(id) {
     switch (id){
-        case "homeContent":
-            localStorage.setItem("view", "HOME");
+        case "dashboard":
+            localStorage.setItem("view", "DASHBOARD");
             break;
         case "customerContent":
             localStorage.setItem("view", "CUSTOMER");
@@ -55,7 +55,7 @@ function saveLastView(id) {
 
 // --bindEvents__
 $("#linkHome").click(function (){
-    setView($("#homeContent"));
+    setView($("#dashboard"));
 })
 
 $("#linkCustomer").click(function (){
