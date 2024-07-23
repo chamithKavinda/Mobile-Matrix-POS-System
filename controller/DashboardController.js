@@ -10,25 +10,25 @@ function initUI(){
     setLastView();
 }
 
-function setLastView(){
-    let view = localStorage.getItem("view")
-    switch(view){
-        case "HOME":
-            setView($("#dashboard"));
-            break;
-        case "CUSTOMER":
-            setView($("#customerContent"));
-            break;
-        case "ITEM":
-            setView($("#itemContent"));
-            break;
-        case "ORDER":
-            setView($("#orderContent"));
-            break;
-        default:
-            setView($("#dashboard"));
-    }
-}
+// function setLastView(){
+//     let view = localStorage.getItem("view")
+//     switch(view){
+//         case "DASHBOARD":
+//             setView($("#dashboard"));
+//             break;
+//         case "CUSTOMER":
+//             setView($("#customerContent"));
+//             break;
+//         case "ITEM":
+//             setView($("#itemContent"));
+//             break;
+//         case "ORDER":
+//             setView($("#orderContent"));
+//             break;
+//         default:
+//             setView($("#dashboard"));
+//     }
+// }
 
 function setView(viewObject) {
     clearAll();
@@ -54,7 +54,7 @@ function saveLastView(id) {
 }
 
 // --bindEvents__
-$("#linkHome").click(function (){
+$("#linkDashboard").click(function (){
     setView($("#dashboard"));
 })
 
@@ -62,10 +62,10 @@ $("#linkCustomer").click(function (){
     setView($("#customerContent"));
 })
 
-$("#itemLink").click(function (){
+$("#linkItem").click(function (){
     setView($("#itemContent"));
 })
 
-$("#orderLink").click(function (){
+$("#linkOrder").click(function (){
     setView($("#orderContent"));
 })
