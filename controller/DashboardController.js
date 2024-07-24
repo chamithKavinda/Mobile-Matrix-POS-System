@@ -1,34 +1,34 @@
 initUI();
 
 function clearAll(){
-    $("#dashboard , #customerContent , #itemContent , #orderContent").css("display","none");
+    $("#homeContent , #customerContent , #itemContent , #orderContent").css("display","none");
 }
 
 function initUI(){
     clearAll();
-    $("#dashboard").css("display","block");
+    $("#homeContet").css("display","block");
     setLastView();
 }
 
-// function setLastView(){
-//     let view = localStorage.getItem("view")
-//     switch(view){
-//         case "DASHBOARD":
-//             setView($("#dashboard"));
-//             break;
-//         case "CUSTOMER":
-//             setView($("#customerContent"));
-//             break;
-//         case "ITEM":
-//             setView($("#itemContent"));
-//             break;
-//         case "ORDER":
-//             setView($("#orderContent"));
-//             break;
-//         default:
-//             setView($("#dashboard"));
-//     }
-// }
+function setLastView(){
+    let view = localStorage.getItem("view")
+    switch(view){
+        case "HOME":
+            setView($("#homeContent"));
+            break;
+        case "CUSTOMER":
+            setView($("#customerContent"));
+            break;
+        case "ITEM":
+            setView($("#itemContent"));
+            break;
+        case "ORDER":
+            setView($("#orderContent"));
+            break;
+        default:
+            setView($("#homeContent"));
+    }
+}
 
 function setView(viewObject) {
     clearAll();
@@ -38,8 +38,8 @@ function setView(viewObject) {
 
 function saveLastView(id) {
     switch (id){
-        case "dashboard":
-            localStorage.setItem("view", "DASHBOARD");
+        case "homeContent":
+            localStorage.setItem("view", "HOME");
             break;
         case "customerContent":
             localStorage.setItem("view", "CUSTOMER");
@@ -54,18 +54,18 @@ function saveLastView(id) {
 }
 
 // --bindEvents__
-$("#linkDashboard").click(function (){
-    setView($("#dashboard"));
+$("#linkHome").click(function (){
+    setView($("#homeContent"));
 })
 
 $("#linkCustomer").click(function (){
     setView($("#customerContent"));
 })
 
-$("#linkItem").click(function (){
+$("#itemLink").click(function (){
     setView($("#itemContent"));
 })
 
-$("#linkOrder").click(function (){
+$("#orderLink").click(function (){
     setView($("#orderContent"));
 })

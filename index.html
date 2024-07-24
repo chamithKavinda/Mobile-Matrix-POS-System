@@ -9,135 +9,44 @@
     <title>Mobile Matrix</title>
 </head>
 <body>
-    <!--------------------------------------- Dashboard --------------------------------------->
-    <section id="dashboard">
-        <div class="container">
-            <div class="navigation">
-                <ul>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="logo-gitlab"></ion-icon></span>
-                            <span class="title" style="font-size: 1.5em; font-weight: 500;">Mobile Matrix </span>
-                        </a> 
+    <!--------------------------------------- NavBar --------------------------------------->
+    <nav id="NavBar" class="navbar navbar-expand-lg shadow-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white fw-bold"  href="#">Mobile Matrix</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul id="navUL" class="navbar-nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="linkHome">Home</a>
                     </li>
-                    <li class="hovered">
-                        <a href="#">
-                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                            <span class="title" id="linkDashboard">Dashboard</span>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="linkCustomer">Customer</a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                            <span class="title" id="linkCustomer">Customers</span>
-                        </a> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="itemLink">Items</a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="pricetags-outline"></ion-icon></span>
-                            <span class="title" id="linkItem">Items</span>
-                        </a> 
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="bag-handle-outline"></ion-icon></span>
-                            <span class="title" id="linkOrder">Orders</span>
-                        </a> 
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
-                            <span class="title">Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
-                            <span class="title">Help</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                            <span class="title">Sign Out</span>
-                        </a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="orderLink">Orders</a>
                     </li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <!-- main window -->
-            <div class="main">
-                <div class="topbar">
-                    <div class="toggle">
-                        <ion-icon name="menu-outline"></ion-icon>
-                    </div>
-                    <!-- search -->
-                    <div class="search">
-                        <label>
-                            <input type="text" placeholder="Search here">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </label>
-                    </div>
-                    <!-- userImg -->
-                    <div class="user">
-                        <img src="/assest/images/image.png">
-                    </div>
-                </div>
-
-                <!-- cards -->
-                <div class="cardBox">
-                    <div class="card">
-                        <div>
-                            <div class="numbers">18</div>
-                            <div class="cardName">Customers</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="people-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">748</div>
-                            <div class="cardName">Items</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="pricetags-outline"></ion-icon>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div>
-                            <div class="numbers">142</div>
-                            <div class="cardName">Orders</div>
-                        </div>
-                        <div class="iconBx">
-                            <ion-icon name="cart-outline"></ion-icon>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Add Charts -->
-                <div class="graphBox">
-                    <div class="box">
-                        <canvas id="earning"></canvas>
-                    </div>
-                </div>
-
-
-
-
-
-
-            </div>
-
-
-
-
-
-
-
-
-
-
+    <!--------------------------------------- Home --------------------------------------->
+    <section id="homeContent">
+        <div class="date-time-wrapper fw-bold"> 
+            <div class="date-display"> 
+                <i class="fa fa-calendar"></i> <span id="dateDisplay"></span> 
+            </div> 
+            <div class="time-display"> 
+                <i class="fa fa-clock-o"></i> <span id="timeDisplay"></span>
+             </div> 
         </div>
     </section>
 
@@ -535,10 +444,5 @@
 
     <script src="/Model/OrderDetailsModel.js"></script>
     <script src="/Model/cartModel.js"></script>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
 </body>
 </html>

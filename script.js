@@ -1,21 +1,9 @@
-// add hovered class in selected list item
-let list = document.querySelectorAll('.navigation li');
-function activeLink(){
-    list.forEach((item) =>
-    item.classList.remove('hovered'));
-    this.classList.add('hovered');
-}
-list.forEach((item) => 
-item.addEventListener('mouseover',activeLink));
+function updateDateTime() {
+    var currentDate = new Date(); 
+    var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; 
+    var timeOptions = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
 
-// MenuToggle
-let toggle = document.querySelector('.toggle');
-let navigation = document.querySelector('.navigation');
-let main = document.querySelector('.main');
-
-toggle.onclick = function(){
-    navigation.classList.toggle('active');
-    main.classList.toggle('active');
+     document.getElementById('dateDisplay').textContent = currentDate.toLocaleDateString('en-US', dateOptions); document.getElementById('timeDisplay').textContent = currentDate.toLocaleTimeString('en-US', timeOptions); 
 }
 
-//Chart
+setInterval(updateDateTime, 1000); 
